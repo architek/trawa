@@ -1,0 +1,20 @@
+rpc_server:
+    ip: 127.0.0.1
+    port: 9091
+    username: transmission
+    password: pass
+dirs:
+    - watch_path:   /home/user/torrents/ebook/presse
+      descrip:      Presse
+      rpc_params:
+        download_dir:   /mnt/ext4/books
+
+    - watch_path:   /home/user/torrents/filmvidéo/film
+      descrip:      Films vidéo
+      rpc_params:
+        download_dir:   /mnt/ext4/Movies/Films
+
+    - watch_path:   /home/user/torrents/jeu-vidéo/windows
+      descrip:      Jeu windows
+      rpc_params:
+        download_dir:   /mnt/ext4/games
