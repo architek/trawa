@@ -50,7 +50,7 @@ class TorrentWatcher:
         self.log.debug("Reading conf [{}]".format(name))
         try:
             with open(name, 'r') as stream:
-                    self.conf = yaml.load(stream)
+                    self.conf = yaml.load(stream, Loader=yaml.BaseLoader)
         except FileNotFoundError:
             self.log.critical("File {} not found!".format(name))
             exit(1)
