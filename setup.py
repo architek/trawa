@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-requirements = ['Click>=6.0', 'inotify-simple==1.1.8', 'transmissionrpc==0.11']
+requirements = ['Click>=6.0', 'inotify-simple==1.1.8', 'transmissionrpc==0.11', 'PyYAML==5.1.2']
 
 setup_requirements = []
 
