@@ -26,6 +26,7 @@ will watch 2 directories and set a specific download_dir for each of the two cat
 Only newly created torrent files are watched. Torrent files are never removed.
 
 *Note:* For the complete list of rpc parameters, see `Transmission RPC proto spec <https://github.com/transmission/transmission/wiki/RPC-Protocol-Specification>`.
+
 *Note:* Don't append the trailing / for watch_path
 
 INSTALL / USE
