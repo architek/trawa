@@ -6,7 +6,11 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-requirements = ['Click>=6.0', 'inotify-simple==1.1.8', 'transmissionrpc==0.11', 'PyYAML==5.1.2']
+requirements = [
+    'Click>=6.0',
+    'inotify-simple==1.1.8',
+    'transmissionrpc==0.11',
+    'PyYAML==5.1.2']
 
 setup_requirements = []
 
@@ -34,6 +38,6 @@ setup(
     packages=find_packages(include=['trawa']),
     setup_requires=setup_requirements,
     url='https://github.com/architek/trawa',
-    version='0.2.0',
+    version='0.4.0',
     zip_safe=False,
 )
