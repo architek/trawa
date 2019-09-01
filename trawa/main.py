@@ -21,7 +21,7 @@ class TorrentWatcher:
         self.read_conf(conf_name)
 
     def start(self):
-        self.log.info("Starting")
+        self.log.info("Starting TorrentWatcher")
         self.inotify = inotify_simple.INotify()
         self.set_watches(self.conf['dirs'])
         try:
