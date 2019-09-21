@@ -5,16 +5,19 @@ rpc_server:
     password: pass
 dirs:
     - watch_path:   /home/user/torrents/ebook/presse
+      file_mask:    '*.torrent'
       descrip:      Presse
       rpc_params:
         download_dir:   /mnt/ext4/books
 
     - watch_path:   /home/user/torrents/filmvidéo/film
+      file_mask:    '*.torrent'
       descrip:      Films vidéo
       rpc_params:
         download_dir:   /mnt/ext4/Movies/Films
 
     - watch_path:   /home/user/torrents/jeu-vidéo/windows
+      file_mask:    '*.torrent'
       descrip:      Jeu windows
       rpc_params:
         download_dir:   /mnt/ext4/games
