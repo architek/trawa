@@ -20,7 +20,7 @@ from trawa.tw import TorrentWatcher
 @click.option('--verbose/--no-verbose', help='Show events (default False)')
 def main(config, quiet, verbose):
     """Monitor directories for torrents"""
-    print("Starting trawa version {}".format(__version__))
+    print("Starting TraWa version {}".format(__version__))
     tw = TorrentWatcher(conf_name=config,
                         log_level=logging.WARNING if quiet
                         else logging.DEBUG if verbose
