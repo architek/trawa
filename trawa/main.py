@@ -89,7 +89,7 @@ class TorrentWatcher:
         for mdir in dirs:
             descrip = mdir['descrip']
             watch_path = mdir['watch_path']
-            file_mask = dir['file_mask']
+            file_mask = mdir['file_mask']
             rpc_params = mdir['rpc_params']
             try:
                 wd = self.inotify.add_watch(watch_path, flags)
