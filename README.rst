@@ -29,16 +29,12 @@ Only newly created torrent files are watched. Torrent files are never removed.
 
 *Note:* For the complete list of rpc parameters, see `Transmission RPC proto spec <https://github.com/transmission/transmission/wiki/RPC-Protocol-Specification>`.
 
-*Note:* Don't append the trailing / for watch_path
-
 INSTALL / USE
 -------------
 
-Python3 only, untested with Python2.
+You can directly install from github provided you have pip::
 
-You can directly install from github provided you have python3 pip::
-
-    pip3 install git+https://github.com/architek/trawa
+    pip install trawa
 
 To run::
 

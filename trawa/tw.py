@@ -84,7 +84,7 @@ class TorrentWatcher:
         self.wds = {}
         for mdir in dirs:
             descrip = mdir['descrip']
-            watch_path = mdir['watch_path']
+            watch_path = mdir['watch_path'].rstrip('/')
             file_mask = mdir['file_mask']
             rpc_params = mdir['rpc_params']
             try:
