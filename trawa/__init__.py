@@ -10,7 +10,7 @@ __version__ = '0.6.0'
 import sys
 import logging
 import click
-from trawa.main import TorrentWatcher
+from trawa.tw import TorrentWatcher
 
 
 @click.command()
