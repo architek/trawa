@@ -81,8 +81,7 @@ class TorrentWatcher:
             self.log.critical("YAML error %s", exc)
             exit(1)
         for d in self.conf['dirs']:
-            if not 'file_mask' in d:
-                d['file_mask'] = '*'
+            d.setdefault('file_mask', '*')
 
     def set_watches(self, dirs, flags=inotify_simple.flags.CLOSE_WRITE |
                     inotify_simple.flags.MOVED_TO):
