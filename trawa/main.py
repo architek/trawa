@@ -39,7 +39,6 @@ class TorrentWatcher:
                 filename = path / event.name
                 conf_dir = [e for e in self.conf['dirs']
                             if e['watch_path'] == str(path)][0]
-                filename = path / event.name
                 if not filename.match(conf_dir['file_mask']):
                     self.log.info("Ignoring {}".format(str(filename)))
                     continue
