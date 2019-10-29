@@ -94,7 +94,12 @@ class TorrentWatcher:
             rpc_params = mdir['rpc_params']
             try:
                 wd = self.inotify.add_watch(watch_path, flags)
-                self.log.info("%s : %s/%s -> %s", descrip, watch_path, file_mask, rpc_params)
+                self.log.info(
+                    "%s : %s/%s -> %s",
+                    descrip,
+                    watch_path,
+                    file_mask,
+                    rpc_params)
                 self.wds[wd] = watch_path
             except FileNotFoundError:
                 self.log.warning(
