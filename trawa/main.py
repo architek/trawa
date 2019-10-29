@@ -16,8 +16,8 @@ class TorrentWatcher:
             format='%(message)s')
         self.log = logging.getLogger(__name__)
         self.inotify = None
-        self.wds = None
-        self.conf = None
+        self.wds = {}
+        self.conf = {}
         self.read_conf(conf_name)
 
     def start(self):
