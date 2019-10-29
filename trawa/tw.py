@@ -21,7 +21,7 @@ class TorrentWatcher:
         self.read_conf(conf_name)
 
     def start(self):
-        self.log.info("Starting TorrentWatcher")
+        self.log.debug("Starting TorrentWatcher")
         self.inotify = inotify_simple.INotify()
         self.set_watches(self.conf['dirs'])
         try:
@@ -30,7 +30,7 @@ class TorrentWatcher:
             self.log.info("\nExited")
 
     def loop(self):
-        self.log.info("Waiting")
+        self.log.debug("Waiting")
         while True:
             for event in self.inotify.read():
                 for flag in inotify_simple.flags.from_mask(event.mask):
@@ -40,7 +40,7 @@ class TorrentWatcher:
                 conf_dir = [e for e in self.conf['dirs']
                             if e['watch_path'] == str(path)][0]
                 if not filename.match(conf_dir['file_mask']):
-                    self.log.info("Ignoring %s", str(filename))
+                    self.log.debug("Ignoring %s", str(filename))
                     continue
                 server = self.conf['rpc_server']
                 self.rpc_add_torrent(server['ip'], server['port'],
