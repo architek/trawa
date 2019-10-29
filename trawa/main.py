@@ -39,7 +39,6 @@ class TorrentWatcher:
                 filename = path / event.name
                 conf_dir = [e for e in self.conf['dirs']
                             if e['watch_path'] == str(path)][0]
-                filename = path / event.name
                 if not filename.match(conf_dir['file_mask']):
                     self.log.info("Ignoring {}".format(str(filename)))
                     continue
@@ -82,8 +81,7 @@ class TorrentWatcher:
             self.log.critical("YAML error %s", exc)
             exit(1)
         for d in self.conf['dirs']:
-            if not 'file_mask' in d:
-                d['file_mask'] = '*'
+            d.setdefault('file_mask', '*')
 
     def set_watches(self, dirs, flags=inotify_simple.flags.CLOSE_WRITE |
                     inotify_simple.flags.MOVED_TO):
@@ -91,11 +89,16 @@ class TorrentWatcher:
         for mdir in dirs:
             descrip = mdir['descrip']
             watch_path = mdir['watch_path']
-            file_mask = dir['file_mask']
+            file_mask = mdir['file_mask']
             rpc_params = mdir['rpc_params']
             try:
                 wd = self.inotify.add_watch(watch_path, flags)
-                self.log.info("%s : %s/%s -> %s", descrip, watch_path, file_mask, rpc_params)
+                self.log.info(
+                    "%s : %s/%s -> %s",
+                    descrip,
+                    watch_path,
+                    file_mask,
+                    rpc_params)
                 self.wds[wd] = watch_path
             except FileNotFoundError:
                 self.log.warning(
