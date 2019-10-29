@@ -1,12 +1,12 @@
 =====
-trawa
+TraWa
 =====
 
 
 Watch directories to trigger transmission downloads.
 
 Trawa is a small python script to monitor watch directories, each having a specific configuration.
-Any file dropped in these directories is sent to a transmission instance using rpcxml.
+Any matching file dropped in these directories is sent to a transmission instance using rpcxml.
 
 You can define for each directory to watch, a file mask and a set of rpc parameters to send to transmission. The following example
 will watch 2 directories and set a specific download_dir for each of the two categories::
