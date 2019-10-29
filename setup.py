@@ -26,7 +26,7 @@ setup(
     description="Watch directories for transmission",
     entry_points={
         'console_scripts': [
-            'trawa=trawa.cli:main',
+            'trawa=trawa:main',
         ],
     },
     install_requires=requirements,
