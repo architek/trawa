@@ -21,7 +21,6 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: ISC License (ISCL)',
-        'Programming Language :: Python :: 3 :: Only',
     ],
     description="Watch directories for transmission",
     entry_points={
