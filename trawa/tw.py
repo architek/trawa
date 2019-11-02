@@ -37,8 +37,9 @@ class TorrentWatcher:
                     self.log.debug("%s", flag)
                 path = pathlib.Path(self.wds[event.wd])
                 filename = path / event.name
+                path = str(path)
                 conf_dir = [e for e in self.conf['dirs']
-                            if e['watch_path'] == str(path)][0]
+                            if e['watch_path'].rstrip("/" "\\") == path][0]
                 if not filename.match(conf_dir['file_mask']):
                     self.log.debug("Ignoring %s", str(filename))
                     continue
@@ -84,7 +85,7 @@ class TorrentWatcher:
         self.wds = {}
         for mdir in dirs:
             descrip = mdir['descrip']
-            watch_path = mdir['watch_path'].rstrip('/')
+            watch_path = mdir['watch_path']
             file_mask = mdir['file_mask']
             rpc_params = mdir['rpc_params']
             try:
