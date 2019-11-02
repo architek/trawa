@@ -32,7 +32,7 @@ Only newly created torrent files are watched. Torrent files are never removed.
 INSTALL / USE
 -------------
 
-You can directly install from github provided you have pip::
+You can install by cloning the repository or if you have pip::
 
     pip install trawa
 
