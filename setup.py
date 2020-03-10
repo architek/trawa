@@ -37,6 +37,6 @@ setup(
     packages=find_packages(include=['trawa']),
     setup_requires=setup_requirements,
     url='https://github.com/architek/trawa',
-    version='0.8.0',
+    version='0.9.0',
     zip_safe=False,
 )
