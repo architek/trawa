@@ -4,6 +4,7 @@ import sys
 import logging
 import pathlib
 import yaml
+import datetime
 import inotify_simple
 import transmissionrpc
 
@@ -50,7 +51,8 @@ class TorrentWatcher:
 
     def rpc_add_torrent(self, ip, port, user, password, torrent_uri, **kwargs):
         self.log.info(
-            "Sending %s to %s with params %s",
+            "%s : Sending %s to %s with params %s",
+            datetime.datetime.now(),
             torrent_uri,
             ip,
             kwargs)
