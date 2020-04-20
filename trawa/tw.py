@@ -40,15 +40,23 @@ class TorrentWatcher:
                 path = pathlib.Path(self.wds[event.wd])
                 filename = path / event.name
                 path = str(path)
-                conf_dir = [e for e in self.conf['dirs']
-                            if e['watch_path'].rstrip("/" "\\") == path][0]
-                if not filename.match(conf_dir['file_mask']):
-                    self.log.debug("Ignoring %s", str(filename))
-                    continue
-                server = self.conf['rpc_server']
-                self.rpc_add_torrent(server['ip'], server['port'],
-                                     server['username'], server['password'],
-                                     str(filename), **conf_dir['rpc_params'])
+                conf_dirs = [e for e in self.conf['dirs']
+                             if e['watch_path'].rstrip("/" "\\") == path]
+                for conf_dir in conf_dirs:
+                    if not filename.match(conf_dir['file_mask']):
+                        self.log.debug(
+                            "Ignoring %s (not matching %s)", str(filename), str(
+                                conf_dir['file_mask']))
+                        continue
+                    server = self.conf['rpc_server']
+                    self.rpc_add_torrent(
+                        server['ip'],
+                        server['port'],
+                        server['username'],
+                        server['password'],
+                        str(filename),
+                        **conf_dir['rpc_params'])
+                    break
 
     def rpc_add_torrent(self, ip, port, user, password, torrent_uri, **kwargs):
         self.log.info(
