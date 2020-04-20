@@ -26,6 +26,7 @@ will watch 2 directories and set a specific download_dir for each of the two cat
 
 
 Only newly created torrent files are watched. Torrent files are never removed.
+When a new torrent is detected for any of the watch_path, the processing is done sequentially and will stop at the first match for file_mask.
 
 *Note:* For the complete list of rpc parameters, see `Transmission RPC proto spec <https://github.com/transmission/transmission/wiki/RPC-Protocol-Specification>`.
 
