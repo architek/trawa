@@ -3,7 +3,6 @@
 import sys
 import logging
 import pathlib
-import datetime
 import yaml
 import inotify_simple
 import transmissionrpc
@@ -14,7 +13,9 @@ class TorrentWatcher:
         logging.basicConfig(
             stream=sys.stdout,
             level=log_level,
-            format='%(message)s')
+            format='%(asctime)s : %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
         self.log = logging.getLogger(__name__)
         self.inotify = None
         self.wds = {}
@@ -51,8 +52,7 @@ class TorrentWatcher:
 
     def rpc_add_torrent(self, ip, port, user, password, torrent_uri, **kwargs):
         self.log.info(
-            "%s : Sending %s to %s with params %s",
-            datetime.datetime.now().replace(microsecond=0),
+            "Sending %s to %s with params %s",
             torrent_uri,
             ip,
             kwargs)
