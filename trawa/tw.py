@@ -54,7 +54,7 @@ class TorrentWatcher:
                         server['port'],
                         server['username'],
                         server['password'],
-                        str(filename),
+                        f'file://{str(filename)}',
                         **conf_dir['rpc_params'])
                     break
 
